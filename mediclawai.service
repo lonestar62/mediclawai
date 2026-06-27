@@ -1,0 +1,19 @@
+[Unit]
+Description=MediclawAI Marketing Site
+After=network.target
+
+[Service]
+Type=simple
+User=rod
+WorkingDirectory=/opt/mediclawai
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+Environment=NODE_ENV=production
+Environment=PORT=3020
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mediclawai
+
+[Install]
+WantedBy=multi-user.target
